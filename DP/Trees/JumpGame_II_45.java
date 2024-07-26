@@ -20,18 +20,22 @@ public class JumpGame_II_45 {
         return minstep;
     }
 
+    //Minimum Time Complexity
     public static int DP(int[] jumps){
         int[] dp = new int[jumps.length];
         int n = jumps.length;
+
+        if(jumps.length == 1)
+            return 0;
+
         if(jumps[n-2] >= 1)
             dp[n-2] = 1;
 
         for(int i = n-3; i >= 0; i--){
            int min = Integer.MAX_VALUE;
-           int s = i;
-           for(int j = 0 ; j < jumps[i]; j++) {
-               s++;
-               if (dp[s] != 0 ) {
+           int s = i+1;
+           for(int j = 0; j < jumps[i] && s < n; j++,s++){
+               if (dp[s] != 0) {
                    if (dp[s] < min)
                        min = dp[s];
                }
@@ -45,7 +49,7 @@ public class JumpGame_II_45 {
     }
 
     public static void main(String[] args) {
-        int[] jumps = new int[] {3,1,5,8};
+        int[] jumps = new int[] {2,0,2,1,2,1};
         //System.out.println(jumpToDestination(jumps,0,0));
         System.out.println(DP(jumps));
     }
