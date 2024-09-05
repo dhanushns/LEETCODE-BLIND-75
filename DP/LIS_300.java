@@ -28,7 +28,7 @@ public class LIS_300 {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[] {10,9,2,5,3,7,101,18};
+        int[] arr = new int[] {10, 22, 9, 33, 21, 50, 41, 60};
         int max = Integer.MIN_VALUE;
         System.out.println(subSeqLength(arr,arr.length));
 
